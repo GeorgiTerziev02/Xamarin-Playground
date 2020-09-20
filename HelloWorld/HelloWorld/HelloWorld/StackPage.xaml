@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HelloWorld.StackPage">
+    <ContentPage.Content>
+        <StackLayout 
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Spacing="10"
+            Orientation="Horizontal"> 
+            <StackLayout>
+                <Image Source="http://placehold.it/100x100"/>
+                <Label Text="Label1" FontSize="24"/>
+            </StackLayout>
+            <Label Text="Label2" FontSize="24"/>
+            <Label Text="Label3" FontSize="24"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
