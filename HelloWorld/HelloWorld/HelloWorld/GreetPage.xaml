@@ -6,17 +6,35 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="HelloWorld.GreetPage">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+        <OnPlatform.Platforms>
+            <On Platform="iOS" Value="0, 20, 0, 0" />
+            <On Platform="Android" Value="0, 0, 0, 0" />
+        </OnPlatform.Platforms>
+        </OnPlatform>
+    </ContentPage.Padding>
     <StackLayout
-           HorizontalOptions="Center"
-           VerticalOptions="Center">
+           BindingContext="{x:Reference slider}"
+           HorizontalOptions="Center">
+        <BoxView Color="Green" Opacity="{Binding Value}"/>
         <Label
-           Text="Hello World"
-            x:Name="label"/>
+            Text="{Binding Value,
+                StringFormat='Value is {0:f2}' }"
+            Opacity="{Binding Value }"
+            />
         <Slider 
-            ValueChanged="Slider_ValueChanged"
+            ValueChanged="ChangeFont"
             x:Name="slider"/>
         <Button
             Text="Say hello!"
             Clicked="Button_Clicked"></Button>
+        <Button
+            Text="Next"
+            Clicked="NextText"/>
+        <Label
+            x:Name="label"
+            Text="Start clicking">
+        </Label>
     </StackLayout>
 </ContentPage>
