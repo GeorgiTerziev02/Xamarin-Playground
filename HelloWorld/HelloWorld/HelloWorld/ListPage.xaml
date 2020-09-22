@@ -8,11 +8,7 @@
     <ListView 
         x:Name="listView"
         SeparatorColor="Blue"
-        HasUnevenRows="True"
-        IsGroupingEnabled="True"
-        GroupDisplayBinding="{Binding Title}"
-        GroupShortNameBinding="{Binding ShortTitle}"
-        >
+        HasUnevenRows="True">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <!--<ImageCell Text="{Binding Name}" Detail="{Binding Status}" DetailColor="Blue" ImageSource="{Binding ImageUrl}"/>-->
@@ -29,7 +25,12 @@
                         <Button Text="Follow"/>
                     </StackLayout>
                 </ViewCell>-->
-                <TextCell Text="{Binding Name}" Detail="{Binding Status}"/>
+                <TextCell Text="{Binding Name}" Detail="{Binding Status}">
+                    <TextCell.ContextActions>
+                        <MenuItem Text="Call" Clicked="CallClicked" CommandParameter="{Binding .}"/>
+                        <MenuItem Text="Delete" Clicked="DeleteClicked" IsDestructive="True" CommandParameter="{Binding .}"/>
+                    </TextCell.ContextActions>
+                </TextCell>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
