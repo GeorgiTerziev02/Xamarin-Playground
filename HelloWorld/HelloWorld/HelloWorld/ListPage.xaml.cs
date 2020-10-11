@@ -41,5 +41,27 @@ namespace HelloWorld
             var contact = (sender as MenuItem).CommandParameter as Contact;
             _contacts.Remove(contact);
         }
+
+        protected override bool OnBackButtonPressed()
+        {
+            return true;
+        }
+
+        private async void SelectedItem(object sender, SelectedItemChangedEventArgs e)
+        {
+            if(e.SelectedItem == null)
+            {
+                return;
+            }
+
+            var contact = e.SelectedItem as Contact;
+            await Navigation.PushAsync(new ContactDetailPage(contact));
+            listView.SelectedItem = null;
+        }
+
+        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            DisplayAlert("Clicked", "Clicked", "Ok");
+        }
     }
 }

@@ -25,9 +25,9 @@
             this.slider.Value = 0.5;
         }
 
-        private void Button_Clicked(object sender, System.EventArgs e)
+        private async void Button_Clicked(object sender, System.EventArgs e)
         {
-            this.DisplayAlert("Hello title", "Hello! How are you!", "Fine, thank you!", "Not fine...");
+            await this.DisplayAlert("Hello title", "Hello! How are you!", "Fine, thank you!", "Not fine...");
         }
 
         private void NextText(object sender, System.EventArgs e)
@@ -44,6 +44,11 @@
         private void ChangeFont(object sender, ValueChangedEventArgs e)
         {
             this.label.FontSize = e.NewValue * 25;
+        }
+
+        private async void ModalClose(object sender, System.EventArgs e)
+        {
+            await this.Navigation.PopModalAsync();
         }
     }
 }

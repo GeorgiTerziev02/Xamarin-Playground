@@ -17,5 +17,32 @@ namespace HelloWorld
         {
             InitializeComponent();
         }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ListPage());
+        }
+
+        private async void ModalPage(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new GreetPage());
+        }
+
+        private async void TabbedPage(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TabsPage());
+        }
+
+        private async void FormPage(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new FormPage());
+        }
+
+        private async void DisplayActionSheet(object sender, EventArgs e)
+        {
+            // null instead of delete
+            var response = await DisplayActionSheet("Title", "Cancel","DELETE", "Option 1", "Option 2", "Option 3" );
+            await DisplayAlert("You chose", response, "Ok");
+        }
     }
 }

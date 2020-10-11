@@ -36,5 +36,6 @@
             x:Name="label"
             Text="Start clicking">
         </Label>
+        <Button Text="Back" Clicked="ModalClose"/>
     </StackLayout>
 </ContentPage>
