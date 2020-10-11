@@ -18,26 +18,31 @@ namespace HelloWorld
             InitializeComponent();
         }
 
+        // async void is a bad practice
         private async void Button_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new ListPage());
         }
 
+        // async void is a bad practice
         private async void ModalPage(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new GreetPage());
         }
 
+        // async void is a bad practice
         private async void TabbedPage(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new TabsPage());
         }
 
+        // async void is a bad practice
         private async void FormPage(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new FormPage());
         }
 
+        // async void is a bad practice
         private async void DisplayActionSheet(object sender, EventArgs e)
         {
             // null instead of delete

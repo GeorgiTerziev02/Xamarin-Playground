@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage 
     Padding="40"
+    xmlns:sys="clr-namespace:System;assembly=netstandard"
     xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -10,5 +11,24 @@
     <StackLayout>
         <Switch IsToggled="True" Toggled="Switch_Toggled"/>
         <Label Text="Content" x:Name="label"/>
+        <Stepper x:Name="stepper" Increment="10"/>
+        <Label Text="{Binding Source={x:Reference stepper}, Path=Value}"/>
+        <Entry Keyboard="Numeric" Placeholder="Phone" />
+        <Entry IsPassword="True" Placeholder="Password" Completed="Password_Completed" />
+        <Label x:Name="passwordLabel" />
+        <Picker Title="Sign up with" x:Name="signUpMethods" SelectedIndexChanged="Picker_SelectedIndexChanged">
+            <Picker.Items>
+            </Picker.Items>
+        </Picker>
+        <DatePicker 
+            Date="{x:Static sys:DateTime.Today}" 
+            Format="d MMM yyyy" 
+            MinimumDate="1 Jan 2000" 
+            MaximumDate="30 Jan 3000"
+            DateSelected="DatePicker_DateSelected"/>
+        <!--<TimePicker />-->
+        <!--<Editor />-->
+
+        <Button Text="Table View" Clicked="Button_Clicked"/>
     </StackLayout>
 </ContentPage>
