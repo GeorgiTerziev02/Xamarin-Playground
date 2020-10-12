@@ -43,6 +43,12 @@ namespace HelloWorld
         }
 
         // async void is a bad practice
+        private async void ApiPage(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new RestApiPage());
+        }
+
+        // async void is a bad practice
         private async void DisplayActionSheet(object sender, EventArgs e)
         {
             // null instead of delete
